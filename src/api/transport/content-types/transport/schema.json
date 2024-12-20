@@ -1,0 +1,49 @@
+{
+  "kind": "collectionType",
+  "collectionName": "transports",
+  "info": {
+    "singularName": "transport",
+    "pluralName": "transports",
+    "displayName": "transport"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "bus",
+        "train",
+        "taxi",
+        "car_rental"
+      ],
+      "required": true
+    },
+    "capacite": {
+      "type": "integer",
+      "min": 1,
+      "required": true
+    },
+    "description": {
+      "type": "text"
+    },
+    "prix": {
+      "type": "integer"
+    },
+    "images": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": true
+    },
+    "tourism_stats": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::tourism-stat.tourism-stat",
+      "mappedBy": "transport"
+    }
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "kind": "collectionType",
+  "collectionName": "complex_touristiques",
+  "info": {
+    "singularName": "complex-touristique",
+    "pluralName": "complex-touristiques",
+    "displayName": "hotels"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "nom": {
+      "type": "string",
+      "required": true
+    },
+    "adresse": {
+      "type": "string",
+      "required": true
+    },
+    "latitude": {
+      "type": "text",
+      "required": true
+    },
+    "longitude": {
+      "type": "text",
+      "required": true
+    },
+    "capacite_totale": {
+      "type": "integer",
+      "default": 10,
+      "min": 1,
+      "required": true
+    },
+    "tourism_stats": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::tourism-stat.tourism-stat",
+      "mappedBy": "hotel"
+    }
+  }
+}

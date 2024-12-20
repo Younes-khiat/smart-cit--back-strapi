@@ -1,0 +1,55 @@
+{
+  "kind": "collectionType",
+  "collectionName": "tourism_stats",
+  "info": {
+    "singularName": "tourism-stat",
+    "pluralName": "tourism-stats",
+    "displayName": "tourism_stats"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "total_visitors": {
+      "type": "integer"
+    },
+    "total_revenue": {
+      "type": "integer"
+    },
+    "date": {
+      "type": "datetime",
+      "required": true
+    },
+    "auberge": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::auberge.auberge",
+      "inversedBy": "tourism_stats"
+    },
+    "event": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::event.event",
+      "inversedBy": "tourism_stats"
+    },
+    "hotel": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::complex-touristique.complex-touristique",
+      "inversedBy": "tourism_stats"
+    },
+    "lieu_touristique": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::lieu-touristique.lieu-touristique",
+      "inversedBy": "tourism_stats"
+    },
+    "transport": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::transport.transport",
+      "inversedBy": "tourism_stats"
+    }
+  }
+}

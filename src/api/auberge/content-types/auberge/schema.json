@@ -1,0 +1,70 @@
+{
+  "kind": "collectionType",
+  "collectionName": "auberges",
+  "info": {
+    "singularName": "auberge",
+    "pluralName": "auberges",
+    "displayName": "Auberge"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "nom": {
+      "type": "string",
+      "required": true
+    },
+    "adresse": {
+      "type": "text",
+      "required": true
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "maison",
+        "camping"
+      ],
+      "default": "maison",
+      "required": true
+    },
+    "capacite_totale": {
+      "type": "integer",
+      "required": true,
+      "min": 1,
+      "default": 10
+    },
+    "nombre_chambres": {
+      "type": "integer",
+      "default": 8,
+      "required": true,
+      "min": 0
+    },
+    "chambres_disponibles": {
+      "type": "integer",
+      "min": 0
+    },
+    "description": {
+      "type": "text"
+    },
+    "images": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": true
+    },
+    "reviews": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::review.review",
+      "mappedBy": "auberge"
+    },
+    "tourism_stats": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::tourism-stat.tourism-stat",
+      "mappedBy": "auberge"
+    }
+  }
+}
